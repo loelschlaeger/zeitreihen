@@ -11,7 +11,7 @@ url: https://loelschaeger.de/zeitreihen
 
 # Willkommen {-}
 
-Zeitreihenanalyse ist eine wichtige Methode, um Daten über die Zeit zu verstehen und Vorhersagen zu treffen. Auf dieser Webseite ... &#128077;
+Zeitreihenanalyse ist eine wichtige Methode, um Daten über die Zeit zu verstehen und Vorhersagen zu treffen. Zum Beispiel interessieren sich Politiker für die Entwicklung der Geburtenzahl, und Investoren versuchen die Entwicklung des Bitcoinpreises vorherzusagen. Auf dieser Webseite findest du eine leichte Einführung in die Zeitreihenanalyse. &#128077;
 
 ## Über mich {-}
 

@@ -1,0 +1,69 @@
+# Was sind Zeitreihen?
+
+```{r, load packages, include = FALSE, message = FALSE, warning = FALSE}
+library("dplyr")
+library("ggplot2")
+library("zoo")
+```
+
+```{r, load data, include = FALSE}
+bitcoin <- readRDS("data/bitcoin.rds")
+birth <- readRDS("data/birth.rds")
+```
+
+Eine *Zeitreihe* ist eine Abfolge von Beobachtungen über die Zeit. Zum Beispiel ist der Bitcoinpreis eine Zeitreihe:
+
+```{r, example-ts-births, echo = FALSE}
+bitcoin %>% ggplot(aes(x = Date, y = Close)) +
+  geom_line(color = "darkblue") +
+  theme_minimal() +
+  scale_x_date() +
+  labs(
+    title = "Schlusskurs des Bitcoin",
+    subtitle = "Tägliche Beobachtungen von April 2022 bis Ende März 2023",
+    caption = "Datenquelle: Yahoo! Finance",
+    x = element_blank(),
+    y = element_blank()
+  ) +
+  ylim(0, NA)
+```
+
+Ein anderes Beispiel ist die Anzahl an Geburten in Deutschland:
+
+```{r, example-ts-bitcoin, echo = FALSE}
+birth %>% dplyr::reframe(
+  date = as.Date(as.yearmon(paste(year, month, sep = "-"))),
+  total = total
+) %>% ggplot(aes(x = date, y = total)) +
+  geom_line(color = "darkblue") +
+  theme_minimal() +
+  scale_x_date() +
+  labs(
+    title = "Geburtenanzahl in Deutschland",
+    subtitle = "Monatliche Beobachtungen von Januar 1950 bis Dezember 2021",
+    caption = "Datenquelle: Statistisches Bundesamt",
+    x = element_blank(),
+    y = element_blank()
+  ) +
+  ylim(0, NA)
+```
+
+Zwei Unterschiede zwischen diesen Beispielen können wir hervorheben:
+
+1. **Zeitabstände der Beobachtungen:** Die Beobachtungen können täglich oder monatlich sein, oder andere *Frequenzen* wie stündlich, quartalsweise oder jährlich aufweisen. Wenn die Beobachtungen in gleichmäßigen Abständen vorliegen (*äquidistant* sind), erleichtert das die Analyse.
+
+2. **Struktur in der Zeitreihe:** Die untere Zeitreihe weist eine besondere Struktur auf, wir sehen sich wiederholende Muster. Konkret können wir vermuten, dass manche Monate besonders geburtenstark und andere eher geburtenschwach sind.^[Solche Muster finden wir leider nicht in Finanzzeitreihen, sonst wäre es ziemlich einfach, Kursbewegungen vorherzusagen. `r emo::ji("smile")`]
+
+Bei der Analyse einer Zeitreihe interessieren wir uns für
+
+- den grundsätzlichen *Trend* (und Änderungen im Trend),
+
+- *Saisonalitäten* (und andere Muster),
+
+- Bereinigung von zufälligen *Störungen*,
+
+- und natürlich *Prognosen*.
+
+::: {.rmdnote} 
+Eine Zeitreihe notieren wir als $\{y_t\}_{t\in I}$, wobei $y_t$ die Beobachtung zum Zeitpunt $t$ ist und $I$ die Menge aller Zeitpunkte beschreibt. Wir konzentrieren uns auf endliche Mengen $I$ mit äquidistanten Elementen, daher können wir die Menge $I = \{1,2,\dots,T\}$ verwenden, wobei $T$ die Gesamtanzahl an Beobachtungen ist. 
+:::
