@@ -1,4 +1,4 @@
-# Regression
+# Zeitreihen
 
 <!-- badges: start -->
 
