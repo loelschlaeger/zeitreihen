@@ -1,7 +1,7 @@
 --- 
 title: "Zeitreihen"
 author: "Lennart Oelschläger"
-date: "10.04.2023"
+date: "17.04.2023"
 description: |
   Eine Einführung in Zeitreihenanalyse
 site: bookdown::bookdown_site

@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>1 Was sind Zeitreihen? | Zeitreihen</title>
 <meta name="author" content="Lennart Oelschläger">
-<meta name="description" content="Eine Zeitreihe ist eine Abfolge von Beobachtungen über die Zeit. Zum Beispiel ist der Bitcoinpreis eine Zeitreihe: Ein anderes Beispiel ist die Anzahl an Geburten in Deutschland: Zwei Unterschiede...">
+<meta name="description" content="Eine Zeitreihe ist eine Abfolge von Beobachtungen über die Zeit. Zum Beispiel ist der Bitcoinpreis eine Zeitreihe: Ein anderes Beispiel ist die Anzahl an Geburten in Deutschland: Zwei wesentliche...">
 <meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="1 Was sind Zeitreihen? | Zeitreihen">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://loelschaeger.de/zeitreihen/was-sind-zeitreihen.html">
-<meta property="og:description" content="Eine Zeitreihe ist eine Abfolge von Beobachtungen über die Zeit. Zum Beispiel ist der Bitcoinpreis eine Zeitreihe: Ein anderes Beispiel ist die Anzahl an Geburten in Deutschland: Zwei Unterschiede...">
+<meta property="og:description" content="Eine Zeitreihe ist eine Abfolge von Beobachtungen über die Zeit. Zum Beispiel ist der Bitcoinpreis eine Zeitreihe: Ein anderes Beispiel ist die Anzahl an Geburten in Deutschland: Zwei wesentliche...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1 Was sind Zeitreihen? | Zeitreihen">
-<meta name="twitter:description" content="Eine Zeitreihe ist eine Abfolge von Beobachtungen über die Zeit. Zum Beispiel ist der Bitcoinpreis eine Zeitreihe: Ein anderes Beispiel ist die Anzahl an Geburten in Deutschland: Zwei Unterschiede...">
+<meta name="twitter:description" content="Eine Zeitreihe ist eine Abfolge von Beobachtungen über die Zeit. Zum Beispiel ist der Bitcoinpreis eine Zeitreihe: Ein anderes Beispiel ist die Anzahl an Geburten in Deutschland: Zwei wesentliche...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -76,17 +76,17 @@
 <div class="inline-figure"><img src="01-was-sind-zeitreihen_files/figure-html/example-ts-births-1.png" width="672"></div>
 <p>Ein anderes Beispiel ist die Anzahl an Geburten in Deutschland:</p>
 <div class="inline-figure"><img src="01-was-sind-zeitreihen_files/figure-html/example-ts-bitcoin-1.png" width="672"></div>
-<p>Zwei Unterschiede zwischen diesen Beispielen können wir hervorheben:</p>
+<p>Zwei wesentliche Unterschiede zwischen diesen Beispielen können wir hervorheben:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Zeitabstände der Beobachtungen:</strong> Die Beobachtungen können täglich oder monatlich sein, oder andere <em>Frequenzen</em> wie stündlich, quartalsweise oder jährlich aufweisen. Wenn die Beobachtungen in gleichmäßigen Abständen vorliegen (<em>äquidistant</em> sind), erleichtert das die Analyse.</p></li>
 <li><p><strong>Struktur in der Zeitreihe:</strong> Die untere Zeitreihe weist eine besondere Struktur auf, wir sehen sich wiederholende Muster. Konkret können wir vermuten, dass manche Monate besonders geburtenstark und andere eher geburtenschwach sind.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Solche Muster finden wir leider nicht in Finanzzeitreihen, sonst wäre es ziemlich einfach, Kursbewegungen vorherzusagen. 😄&lt;/p&gt;"><sup>1</sup></a></p></li>
 </ol>
 <p>Bei der Analyse einer Zeitreihe interessieren wir uns für</p>
 <ul>
-<li><p>den grundsätzlichen <em>Trend</em> (und Änderungen im Trend),</p></li>
+<li><p>den grundsätzlichen <em>Trend</em> (und <em>Änderungen</em> im Trend),</p></li>
 <li><p><em>Saisonalitäten</em> (und andere Muster),</p></li>
 <li><p>Bereinigung von zufälligen <em>Störungen</em>,</p></li>
-<li><p>und natürlich <em>Prognosen</em>.</p></li>
+<li><p>und natürlich <em>Prognosen</em> über den weiteren Verlauf.</p></li>
 </ul>
 <div class="rmdnote">
 <p>Eine Zeitreihe notieren wir als <span class="math inline">\(\{y_t\}_{t\in I}\)</span>, wobei <span class="math inline">\(y_t\)</span> die Beobachtung zum Zeitpunt <span class="math inline">\(t\)</span> ist und <span class="math inline">\(I\)</span> die Menge aller Zeitpunkte beschreibt. Wir konzentrieren uns auf endliche Mengen <span class="math inline">\(I\)</span> mit äquidistanten Elementen, daher können wir die Menge <span class="math inline">\(I = \{1,2,\dots,T\}\)</span> verwenden, wobei <span class="math inline">\(T\)</span> die Gesamtanzahl an Beobachtungen ist.</p>
@@ -122,7 +122,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>Von <a class="text-light" href="https://loelschlaeger.de">Lennart Oelschläger</a>. Letztes Update am 10.04.2023.</p>
+    <p>Von <a class="text-light" href="https://loelschlaeger.de">Lennart Oelschläger</a>. Letztes Update am 17.04.2023.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
